@@ -16,4 +16,12 @@ app.use(helmet());
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+import routes from "./routes/index.js";
+
+app.use("/api", routes);
+
+app.get("/", (req, res) => {
+  res.send("Welcome to the NGN↔USD P2P Platform API");
+});
+
 export default app;
